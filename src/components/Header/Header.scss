@@ -1,0 +1,19 @@
+@import '../../colors.scss';
+
+.navbar{
+    margin: 0 !important;
+    background-color: $text;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.navbar-brand{
+    font-size: 25px !important;
+    font-family: 'Muli', sans-serif;
+    color: $primary !important;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    img{
+        margin-right: 2.5px;
+    }
+}

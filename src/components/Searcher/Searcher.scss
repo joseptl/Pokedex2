@@ -1,0 +1,42 @@
+@import '../../colors.scss';
+
+.searcher{
+    position: sticky;
+    top: 0;
+    background-color: #fff !important;
+    transition: all 500ms ease-in-out;  
+}
+.row{
+    align-items: center;
+    width: 90%;
+    justify-content: space-evenly;
+    margin: auto !important;
+}
+
+input{
+    box-shadow: none !important;
+    
+    &:focus{
+        border-color: $primary !important;
+        &::placeholder{
+            color:$primary !important;
+        }
+    }
+}
+
+select{
+    border: none !important;
+    box-shadow: none !important;
+    &:hover{
+        color:$primary !important;
+    }
+}
+
+option{
+    color: #000 !important;
+    padding: 5px !important;
+}
+
+select:focus > option:hover{
+    background: $primary !important;
+}

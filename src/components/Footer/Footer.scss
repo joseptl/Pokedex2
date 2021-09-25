@@ -1,0 +1,46 @@
+@import '../../colors.scss';
+
+footer{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+.autor{
+    color: $primary;
+    font-size: 1rem;
+    font-family: 'Muli', sans-serif;
+}
+
+.contact-section{
+    font-size: 1.2rem;
+    a{
+        color: $primary !important;
+        text-decoration: none;
+        margin-left: 10px;
+        font-family: 'Muli', sans-serif;
+        span{
+            display: none;
+        }
+    }
+}
+
+@media (min-width:768px){
+    .autor{
+        font-size: 1.2rem;
+    }
+
+    .contact-section{
+        font-size: 1.2rem;
+        a span{
+            display: inline-block;
+        }
+    }
+
+    footer{
+        height: 100px;
+    }
+}

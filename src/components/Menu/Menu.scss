@@ -1,0 +1,11 @@
+@import '../../colors.scss';
+
+.dropdown-toggle{
+    color: $primary !important;
+}
+
+.dropdown-item{
+    &:active{
+        background: $primary !important;
+    }
+}
