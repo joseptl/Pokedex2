@@ -1,0 +1,25 @@
+@import '../../colors.scss';
+
+.error-container{
+    height: calc(100vh - 164.5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.error{
+    color: $primary;
+    font-size: 2rem;
+    font-family: 'Muli', sans-serif;
+    font-weight: bold;
+}
+
+@media(min-width:768px){
+    .error{
+        font-size: 4rem;
+    }
+    .error-container{
+        height: calc(100vh - 164.5px);
+    }
+}

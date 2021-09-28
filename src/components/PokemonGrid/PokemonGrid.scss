@@ -1,6 +1,14 @@
 @import '../../colors.scss';
 
 .pokemonGrid{
-    min-height: 100vh;
-    background-color: $primary;
+    min-height: calc(100vh - 268px);
+    background-color: $text;
+    width: 100%;
+    position: relative;
+}
+
+@media(min-width:768px){
+    .pokemonGrid{
+        min-height: calc(100vh - 232.5px);
+    }
 }

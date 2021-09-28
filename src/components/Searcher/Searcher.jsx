@@ -1,9 +1,30 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { Container, Form, FloatingLabel, Row, Col} from 'react-bootstrap';
+import { Container, Form, Row, Col, NavDropdown} from 'react-bootstrap';
 import './Searcher.scss';
 
 
-const Searcher = () => {
+const typeList = [
+    "normal",
+    "fire",
+    "water",
+    "grass",
+    "electric",
+    "ice",
+    "fighting",
+    "poison",
+    "ground",
+    "flying",
+    "psychic",
+    "bug",
+    "rock",
+    "ghost",
+    "dark",
+    "dragon",
+    "steel",
+    "fairy",
+  ];
+
+const Searcher = ({handleClick, handleChange, formValues, handleReset}) => {
     const [top, setTop] = useState(false);
     const containerForm = useRef(null);
 
@@ -16,38 +37,54 @@ const Searcher = () => {
         };
     };
 
-    window.addEventListener('scroll', changeShadow);
 
-    useEffect(() => {
-        top
-        ?containerForm.current.style.boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px"
-        :containerForm.current.style.boxShadow="none"
-    }, [top])
+    useEffect(e=>{
+        window.addEventListener('scroll', changeShadow);
+        return ()=>window.removeEventListener('scroll', changeShadow);
+    },[])
 
     return ( 
-    <Container ref={containerForm} fluid className="mt-2 p-2 searcher">
+    <Container ref={containerForm} fluid className={`p-2 searcher ${top&&"fixed"}`}>
         <Form>
             <Row>
-                <Col sm={12} md={4}>
+                <Col sm={12} md={4} className="form-col">
         <Form.Group controlId="name">
-            <Form.Control type="text" placeholder="Name" name="name"/>
+            <Form.Control type="text" placeholder="Name" name="name" onChange={handleChange} value={formValues.name}/>
         </Form.Group>
+            {formValues.name!==""&&<button className="reset fas fa-times" name="name" onClick={handleReset}></button>}
                 </Col>
-                <Col>
-                <Form.Select aria-label="Default select example">
-  <option>Open this select menu</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-</Form.Select>
+                <Col className="pr-1 pl-1 dropdown-container">
+                    <div className="dropdown-div">
+
+                <NavDropdown
+          id="type_1"
+          title={`${formValues.type1 === ""
+          ? "Type 1"
+          : formValues.type1[0].toUpperCase() +
+          formValues.type1.slice(1)}`}
+          className="form-dropdown"
+          >
+            {typeList.map(e=><NavDropdown.Item name="type1" onClick={(el) => handleClick(el, e)} key={typeList.indexOf(e)} className="form-dropdown-item" href="#" value={e}>{e[0].toUpperCase() +
+            e.slice(1)}</NavDropdown.Item>)}
+        </NavDropdown>
+        {formValues.type1!==""&&<button className="reset fas fa-times" name="type1" onClick={handleReset}></button>}
+            </div>
                 </Col>
-                <Col>
-                <Form.Select aria-label="Default select example">
-  <option>Open this select menu</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-</Form.Select>
+                <Col className="pr-1 pl-1 dropdown-container">
+                    <div className="dropdown-div">
+                <NavDropdown
+          id="type_2"
+          title={`${formValues.type2 === ""
+          ? "Type 2"
+          : formValues.type2[0].toUpperCase() +
+          formValues.type2.slice(1)}`}
+          className="form-dropdown"
+          >
+            {typeList.map(e=><NavDropdown.Item name="type2" className="form-dropdown-item" href="#" onClick={(el) => handleClick(el, e)} key={typeList.indexOf(e)} value={e}>{e[0].toUpperCase() +
+            e.slice(1)}</NavDropdown.Item>)}
+        </NavDropdown>
+        {formValues.type2!==""&&<button className="reset fas fa-times" name="type2" onClick={handleReset}></button>}
+            </div>
                 </Col>
                 </Row>
         </Form>

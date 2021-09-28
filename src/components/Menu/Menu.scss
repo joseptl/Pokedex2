@@ -1,11 +1,25 @@
 @import '../../colors.scss';
 
-.dropdown-toggle{
-    color: $primary !important;
+.menu{
+    a{
+        color:$primary;
+        &:hover{
+            color: $primary;
+        }
+        &:focus{
+            color: $primary;
+        }
+    } 
 }
 
-.dropdown-item{
+.menu-item{
+    color: #000 !important;
     &:active{
+        color: $text !important;
         background: $primary !important;
     }
+}
+
+.dropdown-menu{
+    width: 8rem !important;
 }

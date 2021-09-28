@@ -1,0 +1,24 @@
+@import '../../colors.scss';
+
+.notMatch-container{
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.notMatch{
+    color: $primary;
+    font-size: 1.5rem;
+    font-family: 'Muli', sans-serif;
+}
+
+@media(min-width:768px){
+    .notMatch{
+        font-size: 1.8rem;
+    }
+}
